@@ -41,18 +41,26 @@
       ContactManager.Contact = Backbone.Model.extend({});
 
       ContactManager.ContactView = Marionette.ItemView.extend({
-        template: "#contact-template"
+        template: "#contact-template",alertPhoneNumber:function(){
+              alert(this.model.escape("phoneNumber"));
+            }
       });
 
       ContactManager.on("start", function(){
         var alice = new ContactManager.Contact({
+          firstName: "First",
           lastName: "Arten",
           phoneNumber: "555-0184"
         });
 
         var aliceView = new ContactManager.ContactView({
-          model: alice
+          model: alice,events: {
+              "click p": "alertPhoneNumber"
+          },
         });
+        aliceView.alertPhoneNumber =  function(){
+              alert(this.model.escape("lastName"));
+            };
 
         ContactManager.mainRegion.show(aliceView);
       });
