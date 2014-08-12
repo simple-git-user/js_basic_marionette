@@ -5,5 +5,5 @@ ContactManager.addRegions({
 });
 
 ContactManager.on("start", function(){
-  ContactManager.ContactsApp.List.Controller.listContacts();
+  ContactManager.S.ContactsApp1.List.Controller.listContacts1();
 });
