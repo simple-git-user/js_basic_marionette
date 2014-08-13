@@ -14,13 +14,16 @@ ContactManager.module("ContactsApp.List", function(List, ContactManager, Backbon
 
     deleteClicked: function(e){
       e.stopPropagation();
+        //alert(ContactManager.request("contact:entities").length);
       this.trigger("contact:delete", this.model);
     },
 
     remove: function(){
       var self = this;
       this.$el.fadeOut(function(){
+          //alert(ContactManager.request("contact:entities").length);
         Marionette.ItemView.prototype.remove.call(self);
+          //alert(ContactManager.request("contact:entities").length);
       });
     }
   });
@@ -30,6 +33,18 @@ ContactManager.module("ContactsApp.List", function(List, ContactManager, Backbon
     className: "table table-hover",
     template: "#contact-list",
     childView: List.Contact,
-    childViewContainer: "tbody"
-  });
+    childViewContainer: "tbody",
+      events: {
+          "click": "highlightName1"
+      },
+      highlightName1: function(e){
+          //this.$el.toggleClass("warning");
+          alert('from table');
+      },
+      onChildviewContactDelete: function(){
+          this.$el.fadeOut(1000, function(){
+              $(this).fadeIn(1000);
+          });}
+
+      });
 });
