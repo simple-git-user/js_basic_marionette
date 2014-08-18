@@ -45,6 +45,12 @@ ContactManager.module('articles',function(Entities, ContactManager, Backbone, Ma
     Entities.articles_v = new Articles_v({collection:arts});
     Entities.articles_v.collection.add({titles:'123'});
 
+    /*
+    M=Backbone.Model.extend({});
+    C=Backbone.Collection.extend({model:M,url:"/arts"});
+    c=new C();
+    c.fetch();
+    */
     ContactManager.addRegions({newApp: "#newApp"});
     ContactManager.newApp.show(articles_v);
     ContactManager.addInitializer(function(){});
