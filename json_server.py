@@ -12,14 +12,30 @@ def hello_world(request):
 def post_article(request):
     new_art = request.json
     arts=yaml.load(open('arts.yaml','r'))
+    try:
+        if not hasattr(arts,'__iter__'):
+            arts=[]
+        elif len(arts)<=0:
+            arts=[]
+    except:
+        arts=[]
     arts.append(new_art)
+    new_art['id']=len(new_art)
     yaml.dump(arts,open('arts.yaml','w'))
     return Response('')
 
 def put_article(request):
+    updated_art = request.json
     arts=yaml.load(open('arts.yaml','r'))
+    if not hasattr(arts,'__iter__'):
+        arts=[]
+    elif len(arts)<=0:
+        arts=[]
+    [arts.pop(e) for e in arts if e['id']==updated_art['id']]
+    arts.append(updated_art)
+    yaml.dump(arts,open('arts.yaml','w'))
+    return Response('')
 
-    pass
 def get_article(request):
     pass
 def delete_article(request):
