@@ -19,8 +19,11 @@ def post_article(request):
             arts=[]
     except:
         arts=[]
+    if arts==None:
+        arts=[]
+
+    new_art['id']=len(arts)
     arts.append(new_art)
-    new_art['id']=len(new_art)
     yaml.dump(arts,open('arts.yaml','w'))
     return Response('')
 
