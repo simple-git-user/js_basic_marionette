@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="lib/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="lib/css/mystyles.css" type="text/css">
+
+    <script src="lib/js/underscore.js" type="text/javascript"></script>
+    <script src="lib/js/jquery.js" type="text/javascript"></script>
+    <script src="lib/js/backbone.js" type="text/javascript"></script>
+
+    <script src="lib/js/backbone.marionette.js" type="text/javascript"></script>
+
+    <script src="app.js" type="text/javascript"></script>
+    <title>Document</title>
+</head>
+<body>
+<div class="container">
+    <header>List view</header>
+    <div class="row">
+        <div class="col-md-1">sp1</div>
+        <div class="col-md-1">sp1</div>
+        <div class="col-md-1">sp1</div>
+        <div class="col-md-1">sp1</div>
+        <div class="col-md-1">sp1</div>
+        <div class="col-md-1">sp1</div>
+        <div class="col-md-1">sp1</div>
+        <div class="col-md-1">sp1</div>
+        <div class="col-md-1">sp1</div>
+        <div class="col-md-1">sp1</div>
+        <div class="col-md-1">sp1</div>
+        <div class="col-md-1">sp1</div>
+    </div>
+    <div>
+        <div class="col-md-6">sp6</div>
+        <div class="col-md-1 col-md-offset-2">sp6</div>
+        <div class="span4 offset2">sp4</div>
+    </div>
+    <footer>Footer</footer>
+</div>
+
+
+<script type="text/template" id="item">
+    <div class="row">
+    <div class="col-md-1 col-md-offset-3"><%= value %></div>
+    </div>
+</script>
+
+<div id="main" class="container">
+
+
+</div>
+<script type="text/javascript">
+    vapp.start();
+
+</script>
+</body>
+</html>
